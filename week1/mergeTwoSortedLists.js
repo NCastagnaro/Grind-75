@@ -74,18 +74,45 @@ const mergeTwoLists = (list1, list2) => {
 
 //      (1)    <=  (1)
 //1. list1.val <= list2.val, so the if statement fires
-//  - we assign list1 to 'prev.next'. So, what this does is point prev.next to the head of list1
+//  - we assign list1 to 'prev.next'. So, what this does is point prev.next to the head of list1, which is currently (1)
 //  - we assign list1 to prev, which will move prev to the (1) node. 
 //  - we assign list1.next to list1. So, what this does is changes the head of list1 up to the (2) node
 
 //      (1)    <=   (2)
 //2. list2.val <= list1.val, so the else statement fires
-//  - we assign list2 to 'prev.next'. So, what this does is point prev.next to the head of list2, which is current
+//  - we assign list2 to 'prev.next'. So, what this does is point prev.next to the head of list2, which is currently (1)
 //  - we assign list2 to prev, which will move prev to the (1) node in our list2. 
 //  - we assign list2.next to list2. So, what this does is changes the head of list2 to the (3) node
 
 //      (2)    <=   (3)
-//2. list1.val <= list2.val, so the if statement fires
+//3. list1.val <= list2.val, so the if statement fires
 //  - we assign list1 to 'prev.next'. So, what this does is point prev.next to the head of list1, which is currently (2)
-//  - we assign list1 to prev, which will move prev to the (1) node in our list2. 
-//  - we assign list1.next to list2. So, what this does is changes the head of list2 to the (3) node
+//  - we assign list1 to prev, which will move prev to the (2) node in our list1. 
+//  - we assign list1.next to list1. So, what this does is changes the head of list1 to the (4) node
+
+//      (3)    <=   (4)
+//4. list2.val <= list1.val, so the else statement fires
+//  - we assign list2 to 'prev.next'. So, what this does is point prev.next to the head of list2, which is currently (3)
+//  - we assign list2 to prev, which will move prev to the (3) node in our list2. 
+//  - we assign list2.next to list2. So, what this does is changes the head of list2 to the (4) node
+
+//      (4)    <=   (4)
+//5. list1.val <= list2.val, so the if statement fires
+//  - we assign list1 to 'prev.next'. So, what this does is point prev.next to the head of list1, which is currently (4)
+//  - we assign list1 to prev, which will move prev to the (4) node in our list1. 
+//  - we assign list1.next to list1. So, what this does is changes the head of list1 to null bc we are at the end of the list.
+
+//6. The while loop no longer fires because we don't have anymore nodes in list1. So, the first if statement fires 
+//  if(!list1) prev.next = list2   What happens is we assign list2 to prev.next. This will point to the head of list2 and handle the remaining nodes. 
+//So, in this case it will point to the (4) node in our list2. But, if we had 10 more nodes after this for example, it will be able to handle all those as well. 
+//That is because when you point to a head, it also returns the nodes it's connected to, if you leave it at there, and don't update the 'next' property.
+//This whole time, we weren't returning all the nodes after the node we point to bc we kept updating the next property. 
+//But, if we had 4 --> 8 --> 9 --> 12, and we set prev.next = list2, where list2 is (4) at the time, we would assign all those nodes
+//to prev.next. Therefore, it would handle all the nodes after it.
+
+//7. Finally, we return dummy.next. Remember, 'dummy' was set to -Infinity. And we assigned dummy to prev initially.
+//So, by returning dummy.prev, it will return the sorted chain that we made throughout. That is why it was so important to point prev.next to the 
+//correct node and update prev accordingly.
+
+//Note: we don't return prev.next because that will just return the next node of where 'prev' left off at, which in this 
+//case was null. The list returned would be nothing in this case. 
