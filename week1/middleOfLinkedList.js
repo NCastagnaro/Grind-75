@@ -45,4 +45,4 @@ const middleNode = head => {
 //We have a length of 6. middleIndex = 6/2 = 3, so don't trigger the if statement and we don't decrement middleIndex. So, middleIndex is 3 now. When we iterate through our list below, we will start with 
 //initialHead, which is 1, with an i value of 0, we iterate again and go to 2 in our linked list, with an i value of 1 now, and we iterate again and go to 3 in our linked list, with an i value of 2 now 
 //and we iterate one more time and get to 4 in our linked list with an i value of 3 now. We will return the linked list starting at this node 
-// We return.4 ---> 5 ---> 6
+// We return 4 ---> 5 ---> 6
