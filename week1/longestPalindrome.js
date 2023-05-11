@@ -13,21 +13,38 @@
 // Explanation: The longest palindrome that can be built is "a", whose length is 1.
 
 const longestPalindrome = string => {
-    //initialize length to zero
     let length = 0;
-    //Create a new Map to store the frequency of each character in the input string
-    let map = new Map()
+    let obj = {}
 
-    //Loop over each character in the string
-    //Inside the loop, the code checks if 'map' contains the current character. If it does, the code retrieves the frequency of the character from the 'map' using the get() method
-   
+    //Run a for loop that puts every character inside the object with its frequency as the value
+    //If the value of the character is divisible by 2 we increment length by 2. 
     for(let char of string){
-        let n = 0
-        if(map.has(char)){
-            n = map.get(char)
-            if(n%2) length +=2; 
-        }
-        map.set(char,n+1)
+        obj[char] = (obj[char] || 0) + 1
+        if(obj[char] % 2 == 0) length = length + 2
     }
-    return string.length > length ? length + 1: length
+    //If we come across a character with an odd value, we increment by 1 only one time because
+    //only one odd numbered character can appear in a palindrome
+    for(let key in obj){
+        if(obj[key] %2 != 0) return length + 1
+    }
+
+    return length
 };
+
+//Explanation:
+//e.g: We have 'abccccdd'
+//We will create an object and store all the characters in there, with their respective values
+//our object
+//{
+//     a:1,
+//     b:1,
+//     c:4,
+//     d:2
+// }
+//
+//We will have iterated through the string, while creating this object. And whenever the character is divisible by 2, we increment length by 2.
+//So, we incremented length by 2 twice for the c character and once for the d character. That brings our length total to 6
+//Note that we still have a and b as odd valued characters. We can only account for one odd valued character as a maximum in a palindrome.
+//So, we include a condition as we iterate through the keys in our object, and once we encounter an odd valued character, we add 1 to our length and return that value
+//If we don't have any odd valued characters in our object, that if statement will never fire and we will just retun length
+
