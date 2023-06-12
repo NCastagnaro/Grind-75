@@ -1,4 +1,5 @@
-// Given a string s which consists of lowercase or uppercase letters, return the length of the longest palindrome that can be built with those letters.
+// Given a string s which consists of lowercase or uppercase letters, return the 
+//length of the longest palindrome that can be built with those letters.
 
 // Letters are case sensitive, for example, "Aa" is not considered a palindrome here.
 
@@ -42,9 +43,14 @@ const longestPalindrome = string => {
 //     d:2
 // }
 //
-//We will have iterated through the string, while creating this object. And whenever the character is divisible by 2, we increment length by 2.
-//So, we incremented length by 2 twice for the c character and once for the d character. That brings our length total to 6
-//Note that we still have a and b as odd valued characters. We can only account for one odd valued character as a maximum in a palindrome.
-//So, we include a condition as we iterate through the keys in our object, and once we encounter an odd valued character, we add 1 to our length and return that value
-//If we don't have any odd valued characters in our object, that if statement will never fire and we will just retun length
+//We will have iterated through the string, while creating this object. And whenever the 
+//character is divisible by 2, we increment length by 2.
+//So, we incremented length by 2 twice for the c character and once for the d character. 
+//That brings our length total to 6
+//Note that we still have a and b as odd valued characters. We can only account for one 
+//odd valued character as a maximum in a palindrome.
+//So, we include a condition as we iterate through the keys in our object, and once we 
+//encounter an odd valued character, we add 1 to our length and return that value
+//If we don't have any odd valued characters in our object, that if statement will
+//never fire and we will just retun length
 
