@@ -1,7 +1,8 @@
 //2.13.23
 // You are given an array prices where prices[i] is the price of a given stock on the ith day.
 
-// You want to maximize your profit by choosing a single day to buy one stock and choosing a different day in the future to sell that stock.
+// You want to maximize your profit by choosing a single day to buy one stock and choosing a different
+//day in the future to sell that stock.
 
 // Return the maximum profit you can achieve from this transaction. If you cannot achieve any profit, return 0.
 
@@ -33,16 +34,22 @@ const maxProfit = prices =>{
 }
 
 //Explanation:
-//We first set up a minPrice variable to be Number.Max_Safe_Integer, which represents the largest representable value in JS's 'Number' type without losing precision. 
-//We want 'minPrice' to start at the highest possible value so that it can be updated with lower prices as we traverse the 'prices' array. 
+//We first set up a minPrice variable to be Number.Max_Safe_Integer, which represents the largest representable value 
+//in JS's 'Number' type without losing precision. 
+//We want 'minPrice' to start at the highest possible value so that it can be updated with lower prices as we traverse 
+//the 'prices' array. 
 //We also set up a 'maxProfit' variable to keep track of the greatest price increase from one day and another. 
-//We iterate through the prices array, with our first if statement checking to see if we have a value less than our current minPrice value. This keep track of our lowest value. 
-//We then have a second if statement. The second if statement checks to see if our current price in the array minus the minimum price we have stored is greater than our maxProfit value. 
+//We iterate through the prices array, with our first if statement checking to see if we have a value less than our 
+//current minPrice value. This keep track of our lowest value. 
+//We then have a second if statement. The second if statement checks to see if our current price in the array minus 
+//the minimum price we have stored is greater than our maxProfit value. 
 //If so, we will update our maxProfit.
 
 //e.g prices = [7,3,9,15,6,4,1,8,10]
-//Note, let's say we find a maxProfit value that is 12 because we had a minPrice of 3, and one of the prices[i] values that came after it was 15 
-//But, we get further along in the array and we find a new minPrice of 1, this would update our minPrice. But, let's say the largest value that comes after it is 10. 
+//Note, let's say we find a maxProfit value that is 12 because we had a minPrice of 3, and one of the prices[i] values
+//that came after it was 15 
+//But, we get further along in the array and we find a new minPrice of 1, this would update our minPrice. But, let's 
+//say the largest value that comes after it is 10. 
 //That second if statement would never fire because 
 //prices[i] - minPrice > maxProfit
 //10        -       1   is not greater than 12, which is the stored maxProfit value from earlier on. 
