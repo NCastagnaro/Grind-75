@@ -1,5 +1,7 @@
-// A phrase is a palindrome if, after converting all uppercase letters into lowercase letters and removing all non-alphanumeric characters, 
-// it reads the same forward and backward. Alphanumeric characters include letters and numbers.
+// A phrase is a palindrome if, after converting all uppercase letters into lowercase
+//letters and removing all non-alphanumeric characters, 
+// it reads the same forward and backward. Alphanumeric characters include 
+//letters and numbers.
 
 // Given a string s, return true if it is a palindrome, or false otherwise.
 
@@ -22,9 +24,11 @@ const isPalindrome = string => {
     return false
 }
 
-//Explanation: The replace() method returns a new string with one, some, or all matches
-//of the pattern replaced by a replacement. The pattern can be a string or RegExp, and the replacement 
-//can be a string or a function called for each match. 
-//This regex expression is set up to replace all non-alphanumeric characters and spaces with nothing.
+//Explanation: The replace() method returns a new string with one, some, 
+//or all matches
+//of the pattern replaced by a replacement. The pattern can be a string or RegExp, 
+//and the replacement can be a string or a function called for each match. 
+//This regex expression is set up to replace all non-alphanumeric characters and 
+//spaces with nothing.
 
 
