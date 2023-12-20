@@ -30,5 +30,5 @@ const addBinary = (a,b) => {
 //Once we have converted our binary numbers 'a' and 'b' to BigInt datatype, we add them using normal addition (+) operator. 
 
 //Now, we use the toString() method to convert our BigInt number (sum calculated) to a string in binary format. To do that, we pass the base we want to convert our argument to. 
-//  .toString(2) converts the string to Binary(base 2).
+//  .toString(2) converts the string to Binary(base 2)
 
